@@ -31,16 +31,17 @@ using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Windows;
+using System.Windows.Markup;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WpfGraphControl")]
+[assembly: AssemblyTitle("Msagl.Viewers.Wpf")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("WpfGraphControl")]
-[assembly: AssemblyCopyright("Copyright ©  2012")]
+[assembly: AssemblyProduct("Msagl.Viewers.Wpf")]
+[assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -58,7 +59,7 @@ using System.Windows;
 
 //[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]
 
-
+[assembly:XmlnsDefinition("http://mlsagl", "Microsoft.Msagl.WpfGraphControl")]
 [assembly:ThemeInfo(
     ResourceDictionaryLocation.None, //where theme specific resource dictionaries are located
                              //(used if a resource is not found in the page, 
