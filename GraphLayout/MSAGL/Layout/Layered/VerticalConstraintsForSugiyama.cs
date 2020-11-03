@@ -85,7 +85,7 @@ namespace Microsoft.Msagl.Layout.Layered {
             get { return gluedUpDownIntConstraints; }
             set { gluedUpDownIntConstraints = value; }
         }
-        Dictionary<Node, int> nodeIdToIndex;
+        Dictionary<string, int> nodeIdToIndex;
         BasicGraph<Node, IntEdge> intGraph;
         /// <summary>
         /// this graph is obtained from intGraph by glueing together same layer vertices
@@ -99,7 +99,8 @@ namespace Microsoft.Msagl.Layout.Layered {
         Dictionary<int, int> sameLayerDictionaryOfRepresentatives = new Dictionary<int, int>();
         Dictionary<int, IEnumerable<int>> representativeToItsLayer = new Dictionary<int, IEnumerable<int>>();
         internal IEnumerable<IEdge> GetFeedbackSet(BasicGraph<Node, IntEdge> intGraphPar, Dictionary<Node, int> nodeIdToIndexPar) {
-            this.nodeIdToIndex = nodeIdToIndexPar;
+            this.nodeIdToIndex = nodeIdToIndexPar.ToDictionary(ni => ni.Key.ToString(), ni=> ni.Value);
+
             this.intGraph = intGraphPar;
             this.maxRepresentative = -1;
             this.minRepresentative = -1;
@@ -278,7 +279,7 @@ namespace Microsoft.Msagl.Layout.Layered {
         }
         int NodeIndex(Node node) {
             int index;
-            if (this.nodeIdToIndex.TryGetValue(node, out index))
+            if (this.nodeIdToIndex.TryGetValue(node.ToString(), out index))
                 return index;
             return -1;
         }

@@ -31,7 +31,7 @@ namespace Microsoft.Msagl.Layout.Layered {
         internal Set<Tuple<int, int>> LeftRightIntNeibs;
 
         internal Set<Tuple<int, int>> VerticalInts;
-        Dictionary<Node, int> nodeIdToIndex;
+        Dictionary<string, int> nodeIdToIndex;
 
         internal Set<Tuple<Node, Node>> LeftRightNeighbors {
             get { return leftRightNeighbors; }
@@ -97,13 +97,13 @@ namespace Microsoft.Msagl.Layout.Layered {
 
         int NodeIndex(Node node) {
             int index;
-            if (nodeIdToIndex.TryGetValue(node, out index))
+            if (nodeIdToIndex.TryGetValue(node.ToString(), out index))
                 return index;
             return -1;
         }
 
         internal void PrepareForOrdering(Dictionary<Node, int> nodeToIndexParameter, int[] yLayers) {
-            nodeIdToIndex = nodeToIndexParameter;
+            nodeIdToIndex = nodeToIndexParameter.ToDictionary(ni => ni.Key.ToString(), ni=> ni.Value);
             MapNodesToToIntegers(yLayers);
         
             CreateMappingOfNeibBlocks();
