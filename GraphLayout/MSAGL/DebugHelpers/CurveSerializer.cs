@@ -2,7 +2,8 @@ using System;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-#if DEBUGGLEE
+using Microsoft.Msagl.Core.Geometry.Curves;
+#if TEST_MSAGL
 
 namespace Microsoft.Msagl.Splines {
     /// <summary>
@@ -30,7 +31,7 @@ namespace Microsoft.Msagl.Splines {
                 return null;
 
             // Open the requested file to a stream object
-            Console.WriteLine("\nDeserializing LinkedList from file: {0} ..\n", fileName);
+            System.Diagnostics.Debug.WriteLine("\nDeserializing LinkedList from file: {0} ..\n", fileName);
 
             Stream file = File.Open(fileName, FileMode.Open);
 

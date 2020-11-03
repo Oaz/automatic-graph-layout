@@ -223,7 +223,7 @@ namespace Microsoft.Msagl.Core.Layout.ProximityOverlapRemoval.StressEnergy {
             }
         }
 
-#if DEBUG
+#if TEST_MSAGL
     /// <summary>
     ///     Only for internal testing purposes. Three nodes a-b-c, after the process the distances should be 10 between them.
     /// </summary>
@@ -273,13 +273,13 @@ namespace Microsoft.Msagl.Core.Layout.ProximityOverlapRemoval.StressEnergy {
                 List<Point> result = majorization.IterateSingleLocalizedMethod();
 
                 foreach (Point point in result) {
-                    Console.WriteLine("ResultPoint: {0}", point.ToString());
+                    System.Diagnostics.Debug.WriteLine("ResultPoint: {0}", point.ToString());
                 }
 
-                Console.WriteLine("Distance To Left: {0}", (result[0] - result[1]).Length);
-                Console.WriteLine("Distance To Right: {0}", (result[0] - result[2]).Length);
+                System.Diagnostics.Debug.WriteLine("Distance To Left: {0}", (result[0] - result[1]).Length);
+                System.Diagnostics.Debug.WriteLine("Distance To Right: {0}", (result[0] - result[2]).Length);
 
-                Console.WriteLine("----------------------------------------");
+                System.Diagnostics.Debug.WriteLine("----------------------------------------");
             }
         }
 #endif
