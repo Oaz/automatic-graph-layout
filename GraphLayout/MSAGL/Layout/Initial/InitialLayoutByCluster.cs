@@ -75,7 +75,7 @@ namespace Microsoft.Msagl.Layout.Initial {
 #if SHARPKIT // no multithreading in JS
         bool runInParallel = false;
 #else
-        bool runInParallel = true;
+        bool runInParallel = false;
 #endif
 
         /// <summary>
